@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Product Tracker</title>
+    <style>
+        .tabcontent {
+            display: none;
+        }
+
+        .tabcontent.active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo">
+                <img src="SHRIPISTON.jpg" alt="Market Tracker Logo" class="logo-image">
+                Market Tracker
+            </div>
+            <div class="navbar-links">
+                <button class="tablinks" onclick="openTab(event, 'registerVendor')">Register Vendor</button>
+                <button class="tablinks" onclick="openTab(event, 'addProduct')">Add Product</button>
+                <button class="tablinks" onclick="openTab(event, 'addInvoice')">Add Invoice</button>
+                <button class="tablinks" onclick="openTab(event, 'addGodown')">Add Godown</button>
+                <button class="tablinks" onclick="openTab(event, 'login')">Login</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Tab content: Register Vendor -->
+    <div id="registerVendor" class="tabcontent">
+        <h2>Register Vendor</h2>
+        <form id="registerVendorForm" method="post" action="http://localhost:3000/registerVendor">
+            <div class="form-group">
+                <label for="vendor_id">Vendor ID:</label>
+                <input type="text" id="vendor_id" name="vendor_id" required placeholder="Enter vendor id">
+            </div>
+            <div class="form-group">
+                <label for="supplier_name">Supplier Name:</label>
+                <input type="text" id="supplier_name" name="supplier_name" required placeholder="Enter supplier name">
+            </div>
+            <div class="form-group">
+                <label for="city">City:</label>
+                <input type="text" id="city" name="city" required placeholder="Enter city">
+            </div>
+            <div class="form-group">
+                <label for="state">State:</label>
+                <input type="text" id="state" name="state" required placeholder="Enter state">
+            </div>
+            <button type="submit">Register Vendor</button>
+        </form>
+    </div>
+
+    <!-- Tab content: Add Product -->
+    <div id="addProduct" class="tabcontent">
+        <h2>Add Product</h2>
+        <form id="addProductForm" method="post" action="http://localhost:3000/addProduct">
+            <div class="form-group">
+                <label for="sap_code">SAP Code:</label>
+                <input type="text" id="sap_code" name="sap_code" required placeholder="Enter SAP code">
+            </div>
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <input type="text" id="description" name="description" required placeholder="Enter description">
+            </div>
+            <div class="form-group">
+                <label for="purchase_order_no">Purchase Order No:</label>
+                <input type="number" id="purchase_order_no" name="purchase_order_no" required
+                    placeholder="Enter purchase order number">
+            </div>
+            <div class="form-group">
+                <label for="purchase_order_date">Purchase Order Date:</label>
+                <input type="date" id="purchase_order_date" name="purchase_order_date" required>
+            </div>
+            <div class="form-group">
+                <label for="dispatched_quantity">Dispatched Quantity:</label>
+                <input type="number" id="dispatched_quantity" name="dispatched_quantity" required
+                    placeholder="Enter dispatched quantity">
+            </div>
+            <div class="form-group">
+                <label for="dispatch_date">Dispatch Date:</label>
+                <input type="date" id="dispatch_date" name="dispatch_date" required>
+            </div>
+            <button type="submit">Add Product</button>
+        </form>
+    </div>
+
+    <!-- Tab content: Add Invoice -->
+    <div id="addInvoice" class="tabcontent">
+        <h2>Add Invoice</h2>
+        <form id="addInvoiceForm" method="post" action="http://localhost:3000/addInvoice">
+            <div class="form-group">
+                <label for="invoice_number">Invoice Number:</label>
+                <input type="number" id="invoice_number" name="invoice_number" required
+                    placeholder="Enter invoice number">
+            </div>
+            <button type="submit">Add Invoice</button>
+        </form>
+    </div>
+
+    <!-- Tab content: Add Godown -->
+    <div id="addGodown" class="tabcontent">
+        <h2>Add Godown</h2>
+        <form id="addGodownForm" method="post" action="http://localhost:3000/addGodown">
+            <div class="form-group">
+                <label for="godown_id">Godown ID:</label>
+                <input type="number" id="godown_id" name="godown_id" required placeholder="Enter godown id">
+            </div>
+            <div class="form-group">
+                <label for="godown_name">Godown Name:</label>
+                <select id="godown_name" name="godown_name" required>
+                    <option value="Sahibabad">Sahibabad</option>
+                    <option value="Jalandher">Jalandher</option>
+                    <option value="Hosur">Hosur</option>
+                    <option value="Chennai">Chennai</option>
+                    <option value="Hyderabad">Hyderabad</option>
+                    <option value="Indore">Indore</option>
+                    <option value="Pune">Pune</option>
+                    <option value="Kolkata">Kolkata</option>
+                    <option value="Patna">Patna</option>
+                </select>
+            </div>
+            <button type="submit">Add Godown</button>
+        </form>
+    </div>
+
+    <!-- Tab content: Godown Owner Login -->
+    <div id="login" class="tabcontent">
+        <h2>Godown Owner Login</h2>
+        <form id="addGodownLoginForm" method="post" action="http://localhost:3000/login">
+            <div class="form-group">
+                <label for="user_id">User ID:</label>
+                <input type="text" id="user_id" name="user_id" required placeholder="Enter user ID">
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required placeholder="Enter password">
+            </div>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    <!-- Footer Section -->
+    <footer style="background-color: #282828; color: #fff; padding: 40px 0; font-family: Arial, sans-serif;">
+        <div class="container"
+            style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; flex-wrap: wrap;">
+            <!-- Company Info -->
+            <div class="footer-section" style="flex: 1; padding: 10px;">
+                <h4 style="color: #fff; font-size: 18px; margin-bottom: 20px;">Shriram Pistons & Rings Ltd.</h4>
+                <p style="line-height: 1.6; color: #ccc;">
+                    Shriram Pistons & Rings Ltd. <br>
+                    3rd Floor, 23 Kasturba Gandhi Marg,<br>
+                    New Delhi - 110001, India
+                </p>
+                <p style="line-height: 1.6; color: #ccc;">
+                    Phone: +91-11-23315941-45<br>
+                    Fax: +91-11-23311203<br>
+                    Email: info@shrirampistons.com
+                </p>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer-section" style="flex: 1; padding: 10px;">
+                <h4 style="color: #fff; font-size: 18px; margin-bottom: 20px;">Quick Links</h4>
+                <ul style="list-style: none; padding: 0; line-height: 1.6;">
+                    <li><a href="https://shrirampistons.com/overview/" style="color: #ccc; text-decoration: none;">About
+                            Us</a></li>
+                    <li><a href="" style="color: #ccc; text-decoration: none;">Products</a></li>
+                    <li><a href="https://shrirampistons.com/careers/"
+                            style="color: #ccc; text-decoration: none;">Careers</a></li>
+                    <li><a href="https://shrirampistons.com/contact-page/"
+                            style="color: #ccc; text-decoration: none;">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <!-- Social Media Links -->
+            <div class="footer-section" style="flex: 1; padding: 10px;">
+                <h4 style="color: #fff; font-size: 18px; margin-bottom: 20px;">Follow Us</h4>
+                <div style="display: flex; gap: 10px;">
+                    <a href="https://www.facebook.com/" target="_blank">
+                        <img src="facebook.jpeg" alt="Facebook" style="width: 30px; height: 30px;">
+                    </a>
+                    <a href="https://www.twitter.com/" target="_blank">
+                        <img src="twitter.jpeg" alt="Twitter" style="width: 30px; height: 30px;">
+                    </a>
+                    <a href="https://www.linkedin.com/" target="_blank">
+                        <img src="linkedin.jpg" alt="LinkedIn" style="width: 30px; height: 30px;">
+                    </a>
+                    <a href="https://www.youtube.com/" target="_blank">
+                        <img src="yt.jpeg" alt="YouTube" style="width: 30px; height: 30px;">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div style="background-color: #222; text-align: center; padding: 20px 0; margin-top: 20px;">
+            <p style="color: #ccc; margin: 0;">&copy; 2024 Shriram Pistons & Rings Ltd. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+
+            // Hide all tab content by default
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+                tabcontent[i].classList.remove("active");
+            }
+
+            // Remove the active class from all tab links
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+
+            // Show the current tab and add an "active" class to the button that opened the tab
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.classList.add("active");
+        }
+
+        // Default open tab
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelector('.tablinks').click();
+        });
+    </script>
+</body>
+
+</html>
